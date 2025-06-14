@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whatsappg12/pages/calls_page.dart';
+import 'package:whatsappg12/pages/camera_page.dart';
+import 'package:whatsappg12/pages/chat_page.dart';
+import 'package:whatsappg12/pages/status_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,12 +33,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [
-            Center(child: Text("1")),
-            Center(child: Text("2")),
-            Center(child: Text("3")),
-            Center(child: Text("4")),
-          ],
+          children: [CameraPage(), ChatPage(), StatusPage(), CallsPage()],
         ),
       ),
     );
