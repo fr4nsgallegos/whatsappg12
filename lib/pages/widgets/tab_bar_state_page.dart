@@ -12,28 +12,29 @@ class _TabBarStatePageState extends State<TabBarStatePage>
   late TabController _controller;
   List<String> titulos = ["Noticias", "Mensajes", "Ajustes"];
 
-  int x = 0;
   @override
   void initState() {
+    _controller = TabController(length: titulos.length, vsync: this);
     // TODO: implement initState
     super.initState();
-    x = 10; //incializa en 10 somulando la carga desde  una base de datos
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          x += 10;
-          setState(() {});
-        },
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text(x.toString(), style: TextStyle(fontSize: 50))],
+      appBar: AppBar(
+        title: Text("Tab dinámico"),
+        bottom: TabBar(
+          controller: _controller,
+          tabs: titulos.map((e) => Center(child: Text(e))).toList(),
         ),
+      ),
+      body: TabBarView(
+        controller: _controller,
+        children:
+            titulos
+                .map((titulo) => Center(child: Text("Vista de $titulo")))
+                .toList(),
       ),
     );
   }
