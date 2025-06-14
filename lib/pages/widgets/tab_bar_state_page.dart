@@ -10,7 +10,14 @@ class TabBarStatePage extends StatefulWidget {
 class _TabBarStatePageState extends State<TabBarStatePage>
     with SingleTickerProviderStateMixin {
   late TabController _controller;
-  List<String> titulos = ["Noticias", "Mensajes", "Ajustes"];
+  List<String> titulos = [
+    "Noticias",
+    "Mensajes",
+    "Ajustes",
+    "Noticias",
+    "Mensajes",
+    "Ajustes",
+  ];
 
   @override
   void initState() {
@@ -25,6 +32,10 @@ class _TabBarStatePageState extends State<TabBarStatePage>
       appBar: AppBar(
         title: Text("Tab dinámico"),
         bottom: TabBar(
+          isScrollable: true,
+          indicatorColor: Colors.orange,
+          unselectedLabelColor: Colors.red,
+          labelColor: Colors.green,
           controller: _controller,
           tabs: titulos.map((e) => Center(child: Text(e))).toList(),
         ),

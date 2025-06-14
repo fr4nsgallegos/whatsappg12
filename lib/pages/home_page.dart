@@ -6,23 +6,34 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3, //número de pestañas
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Ejemplos de TabBar"),
+          backgroundColor: Color(0xff145F55),
+          title: Text("WhatsApp"),
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          ],
           bottom: TabBar(
+            indicatorColor: Colors.white,
+            indicatorWeight: 4,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.grey,
             tabs: [
-              Tab(icon: Icon(Icons.home), text: "Inicio"),
-              Tab(icon: Icon(Icons.star), text: "Favoritos"),
-              Tab(icon: Icon(Icons.person), text: "Perfil"),
+              Tab(icon: Icon(Icons.camera_alt)),
+              Tab(text: "Chats"),
+              Tab(text: "Status"),
+              Tab(text: "Calls"),
             ],
           ),
         ),
         body: TabBarView(
           children: [
-            Center(child: Text("Vista de inicio")),
-            Center(child: Text("Vista de Favoritos")),
-            Center(child: Text("Vista de Perfil")),
+            Center(child: Text("1")),
+            Center(child: Text("2")),
+            Center(child: Text("3")),
+            Center(child: Text("4")),
           ],
         ),
       ),
